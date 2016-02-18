@@ -231,7 +231,7 @@ public class MainWindow extends JFrame{
 
 		//设置主界面参数
 		frame.add(mainPanel);
-		frame.setTitle("HostsTool      ---PigVillage");
+		frame.setTitle("HostsMe      ---PigVillage");
 //		frame.setUndecorated(true);
 		frame.setResizable(false);
 		frame.setSize(1000, 680);
