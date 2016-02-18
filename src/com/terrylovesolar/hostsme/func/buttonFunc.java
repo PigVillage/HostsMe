@@ -52,6 +52,7 @@ public class buttonFunc {
 			hostsIO.copy_hosts(hostsIO.get_hosts_path() + "1", hostsIO.get_hosts_path());
 		}
 		
+		hostsIO.deleteHosts(hostsIO.get_hosts_path() + "1");
 		mainWindow.progressArea.setText(mainWindow.progressArea.getText().replaceAll(
 				"\n\n替换Hosts开始执行...$", 
 				"\n\n替换Hosts开始执行...  Done!"));

@@ -165,6 +165,7 @@ public class HostsIO {
 				Elements content = spider.get_content(html);
 				String time = spider.get_date(html);
 				ps.print("# Updated " + time + "\r\n");
+				ps.print("# Presented by HostsMe  ---PigVillage Studio\r\n");
 				for (Element element : content) {
 					ps.print(element.text() + "\r\n");
 				}
@@ -277,8 +278,8 @@ public class HostsIO {
 			PrintWriter pw = new PrintWriter(outB);
 			for (String text = hostsReader.readLine(); text != null; text = hostsReader.readLine()) {
 				pw.append(text + "\r\n");
-				
 			}
+			pw.append("\r\n\r\n\r\n");
 			pw.close();
 			hostsReader.close();
 		} catch (FileNotFoundException e) {
@@ -398,10 +399,10 @@ public class HostsIO {
 	}
 
 	
-	public static void main(String[] args) {
-		HostsIO hostsIO = new HostsIO();
+//	public static void main(String[] args) {
+//		HostsIO hostsIO = new HostsIO();
 //		hostsIO.update_hosts("twitter");
 //		System.out.println(hostsIO.get_hosts_path() + "1");
 //		hostsIO.copy_hosts("./hosts/hosts", "./hosts/hosts3");
-	}
+//	}
 }
