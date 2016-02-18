@@ -55,30 +55,10 @@ public class HostsIO {
 			FileOutputStream out = new FileOutputStream(constants.BACKUP_DIR + "/hosts.bak");
 			BufferedOutputStream outB = new BufferedOutputStream(out);
 			PrintStream ps = new PrintStream(outB);
-			/**
-			 * 定义ifCheckBakTimeStampExist变量，检测TimeStamp是否存在，不存在为0，存在为1
-			 * 逐行读取Hosts文件，并检测此行是否为TimeStamp，如果是则将TimeStamp替换为最新时间
-			 * 并将ifCheckBakTimeStampExist设置为1
-			 * 如果不是则直接写入该行
-			 */
-			int ifCheckBakTimeStampExist = 0;
 			for (String text = bufferedReader.readLine(); text != null; text = bufferedReader.readLine()) {
-				if (ifCheckBakTimeStampExist == 0) {
-					if (text.indexOf("# Backup TimeStamp") >= 0) {
-						text = "# Backup TimeStamp: " + new Date().getTime();
-						ps.print(text + "\r\n");
-						ifCheckBakTimeStampExist = 1;
-					} else {
-						ps.print(text + "\r\n");
-					}
-				} else {
-					ps.print(text + "\r\n");
-				}
+				ps.print(text + "\r\n");
 			}
-			//以上循环结束后ifCheckBakTimeStampExist如果扔为0说明该文件第一次备份，在底部加上Backup TimeStamp
-			if (ifCheckBakTimeStampExist == 0) {
-				ps.print("# Backup TimeStamp: " + new Date().getTime() + "\r\n");
-			}
+
 			ps.close();
 			outB.close();
 			out.close();
@@ -106,22 +86,8 @@ public class HostsIO {
 			FileOutputStream out = new FileOutputStream(localHosts);
 			BufferedOutputStream outB = new BufferedOutputStream(out);
 			PrintStream ps = new PrintStream(outB);
-			int ifRestoreTimeStampExist = 0;
 			for (String text = bufferedReader.readLine(); text != null; text = bufferedReader.readLine()) {
-				if (ifRestoreTimeStampExist == 0) {
-					if (text.indexOf("# Restore TimeStamp") >= 0) {
-						text = "# Restore TimeStamp: " + new Date().getTime();
-						ps.print(text + "\r\n");
-						ifRestoreTimeStampExist = 1;
-					} else {
-						ps.print(text + "\r\n");
-					}
-				} else {
-					ps.print(text + "\r\n");
-				}
-			}
-			if (ifRestoreTimeStampExist == 0) {
-				ps.print("# Restore TimeStamp: " + new Date().getTime() + "\r\n");
+				ps.print(text + "\r\n");
 			}
 			ps.close();
 			outB.close();
