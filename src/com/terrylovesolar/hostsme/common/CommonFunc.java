@@ -6,7 +6,7 @@ import javax.swing.JTextArea;
  * 通用类
  * @author Terry5
  *
- */
+ */     
 public class CommonFunc {
 	
 	/**
