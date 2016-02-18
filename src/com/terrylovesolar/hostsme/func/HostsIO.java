@@ -257,18 +257,18 @@ public class HostsIO {
 		}
 	}
 	
+	/**
+	 * 将本地系统Hosts已经存在的自定义IP删除
+	 * @param hostName 需要删除的自定义IP名称，例如：google 全部小写
+	 */
 	public void update_hosts(String hostName) {
 		HostsIO hostsIO = new HostsIO();
-//		File hosts = new File(constants.LOCAL_HOSTS_DIR + File.separator + hostName);
-		File hosts = new File(constants.LOCAL_HOSTS);
-		File localHosts = new File(hostsIO.get_hosts_path());
+		File hosts = new File(hostsIO.get_hosts_path());
 		try {
 			//读取需要修改的Hosts文件
 			BufferedReader hostsReader = new BufferedReader(new FileReader(hosts));
-			//读取系统Hosts文件
-			BufferedReader localHostsReader = new BufferedReader(new FileReader(localHosts));
 			//实例化系统Hosts写入流
-			FileOutputStream out = new FileOutputStream(constants.LOCAL_HOSTS + "1");
+			FileOutputStream out = new FileOutputStream(hostsIO.get_hosts_path() + "1");
 			BufferedOutputStream outB = new BufferedOutputStream(out);
 			PrintStream ps = new PrintStream(outB);
 			int ifFind = 0;
@@ -291,18 +291,40 @@ public class HostsIO {
 			outB.close();
 			out.close();
 			hostsReader.close();
-			localHostsReader.close();
-			
 		} catch (FileNotFoundException e) {
-
-			e.printStackTrace();
+			
 		} catch (IOException e) {
 
-			e.printStackTrace();
 		}
-
-
 	}
+	
+	/**
+	 * 复制文件方法
+	 * @param sourcePath 源文件路径
+	 * @param targetPath 目标文件路径
+	 */
+	public void copy_hosts(String sourcePath, String targetPath) {
+		try {
+			//读取源文件
+			File source = new File(sourcePath);
+			BufferedReader sourceReader = new BufferedReader(new FileReader(source));
+			//创建目标文件写入流
+			FileOutputStream out = new FileOutputStream(targetPath);
+			BufferedOutputStream outB = new BufferedOutputStream(out);
+			PrintStream ps = new PrintStream(outB);
+			
+			for (String text = sourceReader.readLine(); text != null; text = sourceReader.readLine()) {
+				ps.println(text);
+			}
+			ps.close();
+			sourceReader.close();
+		} catch (FileNotFoundException e) {
+
+		} catch (IOException e) {
+			
+		}
+	}
+	
 	
 	
 	
@@ -329,8 +351,8 @@ public class HostsIO {
 	 * 删除已经存在的Hosts文件
 	 * @return 删除成功返回True，失败返回False
 	 */
-	public boolean deleteHosts() {
-		File file = new File(constants.LOCAL_HOSTS);
+	public boolean deleteHosts(String hosts) {
+		File file = new File(hosts);
 		if (file.delete()) {
 			return true;
 		}
@@ -382,7 +404,8 @@ public class HostsIO {
 	
 	public static void main(String[] args) {
 		HostsIO hostsIO = new HostsIO();
-		hostsIO.update_hosts("twitter");
-		System.out.println("Done!");
+//		hostsIO.update_hosts("twitter");
+//		System.out.println(hostsIO.get_hosts_path() + "1");
+//		hostsIO.copy_hosts("./hosts/hosts", "./hosts/hosts3");
 	}
 }

@@ -1,7 +1,5 @@
 package com.terrylovesolar.hostsme.func;
 
-import java.util.Properties;
-
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -33,7 +31,26 @@ public class buttonFunc {
 	 */
 	public void startBtn() {
 		mainWindow.progressArea.append(n+n+"替换Hosts开始执行...");
+		if (mainWindow.google.isSelected()) {
+			hostsIO.update_hosts("google");
+			hostsIO.copy_hosts(hostsIO.get_hosts_path() + "1", hostsIO.get_hosts_path());
+		}
+		if (mainWindow.twitter.isSelected()) {
+			hostsIO.update_hosts("twitter");
+			hostsIO.copy_hosts(hostsIO.get_hosts_path() + "1", hostsIO.get_hosts_path());
+		}
+		if (mainWindow.github.isSelected()) {
+			hostsIO.update_hosts("github");
+			hostsIO.copy_hosts(hostsIO.get_hosts_path() + "1", hostsIO.get_hosts_path());
+		}
+		if (mainWindow.facebook.isSelected()) {
+			hostsIO.update_hosts("facebook");
+			hostsIO.copy_hosts(hostsIO.get_hosts_path() + "1", hostsIO.get_hosts_path());
+		}
 		
+		mainWindow.progressArea.setText(mainWindow.progressArea.getText().replaceAll(
+				"\n\n替换Hosts开始执行...$", 
+				"\n\n替换Hosts开始执行...  Done!"));
 
 	}
 	
@@ -42,7 +59,7 @@ public class buttonFunc {
 	 */
 	public void downloadBtn() {
 		if (hostsIO.ifHosts()) {
-			if (hostsIO.deleteHosts()) {
+			if (hostsIO.deleteHosts(constants.LOCAL_HOSTS)) {
 				hostsIO.write_hosts();
 			};
 		} else {
