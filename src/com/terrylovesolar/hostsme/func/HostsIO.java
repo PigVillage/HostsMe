@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.util.Date;
 import javax.swing.JTextArea;
 import org.jsoup.nodes.Document;
@@ -244,7 +245,7 @@ public class HostsIO {
 						ifFind = 1;
 						continue;
 					}else {
-						ps.println(text);
+						ps.print(text + "\r\n");
 					}
 				} else if (text.toLowerCase().indexOf(hostName + " end") >= 0) {
 					ifFind = 0;
@@ -264,6 +265,35 @@ public class HostsIO {
 		}
 	}
 	
+	public void append_hosts(String hostsName) {
+		HostsIO hostsIO = new HostsIO();
+		File hosts = new File(constants.LOCAL_HOSTS_DIR + File.separator + hostsName);
+		//读取需要修改的Hosts文件
+		try {
+			BufferedReader hostsReader = new BufferedReader(new FileReader(hosts));
+			//实例化系统Hosts写入流
+			FileOutputStream out = new FileOutputStream(hostsIO.get_hosts_path() + "1",true);
+			BufferedOutputStream outB = new BufferedOutputStream(out);
+			PrintWriter pw = new PrintWriter(outB);
+			for (String text = hostsReader.readLine(); text != null; text = hostsReader.readLine()) {
+				pw.append(text + "\r\n");
+				
+			}
+			pw.close();
+			hostsReader.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	
+	
 	/**
 	 * 复制文件方法
 	 * @param sourcePath 源文件路径
@@ -280,7 +310,7 @@ public class HostsIO {
 			PrintStream ps = new PrintStream(outB);
 			
 			for (String text = sourceReader.readLine(); text != null; text = sourceReader.readLine()) {
-				ps.println(text);
+				ps.print(text + "\r\n");
 			}
 			ps.close();
 			sourceReader.close();

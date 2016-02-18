@@ -33,25 +33,30 @@ public class buttonFunc {
 		mainWindow.progressArea.append(n+n+"替换Hosts开始执行...");
 		if (mainWindow.google.isSelected()) {
 			hostsIO.update_hosts("google");
+			hostsIO.append_hosts("google");
 			hostsIO.copy_hosts(hostsIO.get_hosts_path() + "1", hostsIO.get_hosts_path());
 		}
 		if (mainWindow.twitter.isSelected()) {
 			hostsIO.update_hosts("twitter");
+			hostsIO.append_hosts("twitter");
 			hostsIO.copy_hosts(hostsIO.get_hosts_path() + "1", hostsIO.get_hosts_path());
 		}
 		if (mainWindow.github.isSelected()) {
 			hostsIO.update_hosts("github");
+			hostsIO.append_hosts("github");
 			hostsIO.copy_hosts(hostsIO.get_hosts_path() + "1", hostsIO.get_hosts_path());
 		}
 		if (mainWindow.facebook.isSelected()) {
 			hostsIO.update_hosts("facebook");
+			hostsIO.append_hosts("facebook");
 			hostsIO.copy_hosts(hostsIO.get_hosts_path() + "1", hostsIO.get_hosts_path());
 		}
 		
 		mainWindow.progressArea.setText(mainWindow.progressArea.getText().replaceAll(
 				"\n\n替换Hosts开始执行...$", 
 				"\n\n替换Hosts开始执行...  Done!"));
-
+		String selectedHosts = mainWindow.hostsSelected.getText().replaceAll("\n", "  ");
+		mainWindow.progressArea.append(selectedHosts.replaceAll("添加的Hosts：", "\n") + "已经成功添加/替换");
 	}
 	
 	/**
