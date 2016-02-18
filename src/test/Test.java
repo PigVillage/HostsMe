@@ -53,10 +53,10 @@ public class Test extends JFrame {
             flag = false;//停止  
         }  
     }  
-    public static void main(String[] args) {  
-        Test fg = new Test();  
-        fg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
-        fg.setSize(300, 100);  
-        fg.setVisible(true);  
-    }  
+//    public static void main(String[] args) {  
+//        Test fg = new Test();  
+//        fg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+//        fg.setSize(300, 100);  
+//        fg.setVisible(true);  
+//    }  
 }  

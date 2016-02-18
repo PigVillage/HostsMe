@@ -54,8 +54,8 @@ public class buttonFunc {
 		
 		hostsIO.deleteHosts(hostsIO.get_hosts_path() + "1");
 		mainWindow.progressArea.setText(mainWindow.progressArea.getText().replaceAll(
-				"\n\n替换Hosts开始执行...$", 
-				"\n\n替换Hosts开始执行...  Done!"));
+				n+n+"替换Hosts开始执行...$", 
+				n+n+"替换Hosts开始执行...  Done!"));
 		String selectedHosts = mainWindow.hostsSelected.getText().replaceAll("\n", "  ");
 		mainWindow.progressArea.append(selectedHosts.replaceAll("添加的Hosts：", "\n") + "已经成功添加/替换");
 	}
@@ -82,12 +82,12 @@ public class buttonFunc {
 		hostsIO.ifBackup();
 		if (hostsIO.makeBackup()) {
 			mainWindow.progressArea.setText(mainWindow.progressArea.getText().replaceAll(
-					"\n\n正在备份本地Hosts...$", 
-					"\n\n正在备份本地Hosts...  Done!"));
+					n+n+"正在备份本地Hosts...$", 
+					n+n+"正在备份本地Hosts...  Done!"));
 		} else {
 			mainWindow.progressArea.setText(mainWindow.progressArea.getText().replaceAll(
-					"\n\n正在备份本地Hosts...$", 
-					"\n\n正在备份本地Hosts...  失败!"));
+					n+n+"正在备份本地Hosts...$", 
+					n+n+"正在备份本地Hosts...  失败!"));
 		}
 
 		

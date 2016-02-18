@@ -65,10 +65,10 @@ public class SwingThreadTest2 extends JFrame {
             flag = false;  
         }  
     }  
-    public static void main(String[] args) {  
-        SwingThreadTest2 fg = new SwingThreadTest2();  
-        fg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
-        fg.setSize(300, 100);  
-        fg.setVisible(true);  
-    }  
+//    public static void main(String[] args) {  
+//        SwingThreadTest2 fg = new SwingThreadTest2();  
+//        fg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+//        fg.setSize(300, 100);  
+//        fg.setVisible(true);  
+//    }  
 }  

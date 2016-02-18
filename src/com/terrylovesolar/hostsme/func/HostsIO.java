@@ -9,13 +9,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
-import java.util.Date;
 import javax.swing.JTextArea;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import com.terrylovesolar.hostsme.common.Constants;
-
 
 
 public class HostsIO {
@@ -283,11 +281,9 @@ public class HostsIO {
 			pw.close();
 			hostsReader.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
 		}
 		
 		
@@ -369,14 +365,13 @@ public class HostsIO {
 					return text.toString().replace("# ", "");
 				}
 			}
+			bufferedReader.close();
 		} catch (FileNotFoundException e) {
-
 			return "本地文件未找到";
 		} catch (IOException e) {
-
 			return "本地文件读取失败";
 		}
-		return constants.LOCAL_HOSTS;
+		return "本地版本不存在";
 		
 	}
 	
