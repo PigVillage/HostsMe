@@ -19,7 +19,7 @@ public class Test {
 	public Document getDoc(){
 		Document document;
 		try {
-			document = Jsoup.connect("http://www.baidu.com").get();
+			document = Jsoup.connect("http://www.qq.com").get();
 			return document;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
