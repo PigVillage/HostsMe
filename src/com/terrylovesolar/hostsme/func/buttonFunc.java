@@ -16,7 +16,6 @@ import com.terrylovesolar.hostsme.main.MainWindow;
 public class buttonFunc {
 	MainWindow mainWindow;
 	HostsIO hostsIO = new HostsIO();
-	Constants constants = new Constants();
 	CommonFunc commonFunc = new CommonFunc();
 	String n = System.getProperty("line.separator");
 	
@@ -65,7 +64,7 @@ public class buttonFunc {
 	 */
 	public void downloadBtn() {
 		if (hostsIO.ifHosts()) {
-			if (hostsIO.deleteHosts(constants.LOCAL_HOSTS)) {
+			if (hostsIO.deleteHosts(Constants.LOCAL_HOSTS)) {
 				hostsIO.write_hosts();
 			};
 		} else {
@@ -98,7 +97,7 @@ public class buttonFunc {
 	 * 恢复按钮功能实现
 	 */
 	public void restoreBtn() {
-		ImageIcon icon = new ImageIcon(constants.RESTORE_ICON);
+		ImageIcon icon = new ImageIcon(Constants.RESTORE_ICON);
 		if (hostsIO.ifBackup()) {
 			int option = JOptionPane.showConfirmDialog(null, "是否恢复Backup文件夹中的备份", "确认恢复？", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, icon);
 			if (option == 0) {

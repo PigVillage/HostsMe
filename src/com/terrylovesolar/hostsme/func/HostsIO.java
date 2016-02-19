@@ -17,8 +17,7 @@ import com.terrylovesolar.hostsme.common.Constants;
 
 
 public class HostsIO {
-	Constants constants = new Constants();
-	
+
 //	一定不能创建initCheck对象，否则会造成StackOverFlow异常
 //	InitCheck check = new InitCheck();
 	
@@ -27,8 +26,8 @@ public class HostsIO {
 	 * @return 如果存在备份文件返回True，不存在返回False
 	 */
 	public boolean ifBackup() {
-		File backupFile = new File(constants.BACKUP_DIR + "/hosts.bak");
-		File backupFileDir = new File(constants.BACKUP_DIR);
+		File backupFile = new File(Constants.BACKUP_DIR + "/hosts.bak");
+		File backupFileDir = new File(Constants.BACKUP_DIR);
 		if (backupFileDir.isDirectory()) {
 			if (backupFile.exists()) {
 				return true;
@@ -51,7 +50,7 @@ public class HostsIO {
 		String localHosts = hostsIO.get_hosts_path();
 		try {
 			bufferedReader = new BufferedReader(new FileReader(localHosts));
-			FileOutputStream out = new FileOutputStream(constants.BACKUP_DIR + "/hosts.bak");
+			FileOutputStream out = new FileOutputStream(Constants.BACKUP_DIR + "/hosts.bak");
 			BufferedOutputStream outB = new BufferedOutputStream(out);
 			PrintStream ps = new PrintStream(outB);
 			for (String text = bufferedReader.readLine(); text != null; text = bufferedReader.readLine()) {
@@ -81,7 +80,7 @@ public class HostsIO {
 		BufferedReader bufferedReader;
 		String localHosts = hostsIO.get_hosts_path();
 		try {
-			bufferedReader = new BufferedReader(new FileReader(constants.BACKUP_DIR + "/hosts.bak"));
+			bufferedReader = new BufferedReader(new FileReader(Constants.BACKUP_DIR + "/hosts.bak"));
 			FileOutputStream out = new FileOutputStream(localHosts);
 			BufferedOutputStream outB = new BufferedOutputStream(out);
 			PrintStream ps = new PrintStream(outB);
@@ -111,8 +110,8 @@ public class HostsIO {
 	 */
 	
 	public boolean ifHosts() {
-		File hostsFile = new File(constants.LOCAL_HOSTS);
-		File hostsFileDir = new File(constants.LOCAL_HOSTS_DIR);
+		File hostsFile = new File(Constants.LOCAL_HOSTS);
+		File hostsFileDir = new File(Constants.LOCAL_HOSTS_DIR);
 		if (hostsFileDir.isDirectory()) {
 			if (hostsFile.exists()) {
 				return true;
@@ -157,7 +156,7 @@ public class HostsIO {
 		HostsIO hostsIO = new HostsIO();
 		if (!hostsIO.ifHosts()) {
 			try {
-				FileOutputStream out = new FileOutputStream(constants.LOCAL_HOSTS);
+				FileOutputStream out = new FileOutputStream(Constants.LOCAL_HOSTS);
 				BufferedOutputStream outB = new BufferedOutputStream(out);
 				PrintStream ps = new PrintStream(outB);
 				Elements content = spider.get_content(html);
@@ -186,10 +185,10 @@ public class HostsIO {
 	 * @param hostName 需要分割的服务名称，如：Google
 	 */
 	public void spiltHosts(String hostName) {
-		File file = new File(constants.LOCAL_HOSTS);
+		File file = new File(Constants.LOCAL_HOSTS);
 		try {
 			BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-			FileOutputStream out = new FileOutputStream(constants.LOCAL_HOSTS_DIR + "/" + hostName);
+			FileOutputStream out = new FileOutputStream(Constants.LOCAL_HOSTS_DIR + "/" + hostName);
 			BufferedOutputStream outB = new BufferedOutputStream(out);
 			PrintStream ps = new PrintStream(outB);
 			/**
@@ -266,7 +265,7 @@ public class HostsIO {
 	
 	public void append_hosts(String hostsName) {
 		HostsIO hostsIO = new HostsIO();
-		File hosts = new File(constants.LOCAL_HOSTS_DIR + File.separator + hostsName);
+		File hosts = new File(Constants.LOCAL_HOSTS_DIR + File.separator + hostsName);
 		//读取需要修改的Hosts文件
 		try {
 			BufferedReader hostsReader = new BufferedReader(new FileReader(hosts));
@@ -327,7 +326,7 @@ public class HostsIO {
 	 * @return BufferedReader 返回一个文件读取缓冲流
 	 */
 	public BufferedReader read_spilt_hosts(String hostName) {
-		File hosts = new File(constants.LOCAL_HOSTS_DIR +File.separator + hostName);
+		File hosts = new File(Constants.LOCAL_HOSTS_DIR +File.separator + hostName);
 		try {
 			BufferedReader bufferedReader = new BufferedReader(new FileReader(hosts));
 			return bufferedReader;
@@ -357,7 +356,7 @@ public class HostsIO {
 	 * @return 返回日期字符串
 	 */
 	public String get_local_time() {
-		File hosts = new File(constants.LOCAL_HOSTS);
+		File hosts = new File(Constants.LOCAL_HOSTS);
 		try {
 			BufferedReader bufferedReader = new BufferedReader(new FileReader(hosts));
 			for (String text = bufferedReader.readLine(); text != null; text = bufferedReader.readLine()) {
@@ -383,11 +382,11 @@ public class HostsIO {
 		String localHosts = null;
 		String os = System.getProperty("os.name").toLowerCase();
 		if (os.indexOf("win") >= 0) {
-			localHosts = constants.WINDOWS_HOSTS;
+			localHosts = Constants.WINDOWS_HOSTS;
 		} else if (os.indexOf("mac") >= 0) {
-			localHosts = constants.MAC_HOSTS;
+			localHosts = Constants.MAC_HOSTS;
 		} else if (os.indexOf("linux") >= 0) {
-			localHosts = constants.LINUX_HOSTS;
+			localHosts = Constants.LINUX_HOSTS;
 		}
 		
 		return localHosts;

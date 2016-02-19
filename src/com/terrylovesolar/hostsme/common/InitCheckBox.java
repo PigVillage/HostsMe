@@ -11,8 +11,7 @@ import javax.swing.JCheckBox;
  *
  */
 public class InitCheckBox {
-	Constants constants = new Constants();
-	
+
 	/**
 	 * 创建一个CheckBox
 	 * @param name 显示的名称
@@ -26,7 +25,7 @@ public class InitCheckBox {
 		jCheckBox.setOpaque(false);
 		jCheckBox.setFocusPainted(false);
 		box.add(jCheckBox).setFont(font);
-		box.add(Box.createVerticalStrut(constants.CHECK_STRUCT_SIZE));
+		box.add(Box.createVerticalStrut(Constants.CHECK_STRUCT_SIZE));
 		return jCheckBox;
 	}
 }

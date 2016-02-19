@@ -2,10 +2,6 @@ package com.terrylovesolar.hostsme.listeners;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.io.BufferedReader;
-import java.io.IOException;
-
-import com.terrylovesolar.hostsme.common.Constants;
 import com.terrylovesolar.hostsme.func.HostsIO;
 import com.terrylovesolar.hostsme.main.MainWindow;
 
@@ -17,7 +13,6 @@ import com.terrylovesolar.hostsme.main.MainWindow;
  */
 public class GoogleListener implements ItemListener{
 	HostsIO hostsIO = new HostsIO();
-	Constants constants = new Constants();
 	MainWindow mainWindow;
 	
 	public GoogleListener(MainWindow mWindow) {

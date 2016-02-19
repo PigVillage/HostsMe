@@ -15,7 +15,6 @@ import com.terrylovesolar.hostsme.common.Constants;
  */
 
 public class Spider {
-	Constants constants = new Constants();
 //	private String SOURCE_URL = "https://raw.githubusercontent.com/highsea/Hosts/master/hosts";
 //	private String SOURCE_URL = "https://github.com/highsea/Hosts/blob/master/hosts";
 	/**
@@ -24,7 +23,7 @@ public class Spider {
 	 */
 	public Document get_source() {
 		try {
-			Document doc = Jsoup.connect(constants.SOURCE_URL).timeout(10000).get();
+			Document doc = Jsoup.connect(Constants.SOURCE_URL).timeout(10000).get();
 			return doc;
 		} catch (IOException e) {
 			

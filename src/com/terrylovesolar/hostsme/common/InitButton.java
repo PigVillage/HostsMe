@@ -12,7 +12,6 @@ import javax.swing.JButton;
  *
  */
 public class InitButton {
-	Constants constants = new Constants();
 	
 	/**
 	 * 创建一个Button对象
@@ -28,7 +27,7 @@ public class InitButton {
 		jButton = new JButton(imageIcon);
 		jButton.setToolTipText(tip);
 		box.add(jButton);
-		box.add(Box.createVerticalStrut(constants.ICON_STRUCT_SIZE));
+		box.add(Box.createVerticalStrut(Constants.ICON_STRUCT_SIZE));
 		//Mac OS仅需设置setBorderPainted即可实现无背景按钮，Win三个都需要设置
 		jButton.setBorderPainted(false);
 		jButton.setFocusPainted(false);

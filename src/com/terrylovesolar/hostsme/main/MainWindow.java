@@ -87,9 +87,6 @@ public class MainWindow extends JFrame{
 	public JTextArea progressArea;
 	
 	
-	//实例化常量对象
-	Constants constants = new Constants();
-	
 	InitCheckBox initCheckBox = new InitCheckBox();
 	InitButton initButton = new InitButton();
 	InitGridBagLayout initGridBagLayout = new InitGridBagLayout();
@@ -174,16 +171,16 @@ public class MainWindow extends JFrame{
 		Box midBox = new Box(BoxLayout.X_AXIS);
 		midBox.add(new JLabel("网络状态：")).setFont(labelFont);
 		midBox.add(netState = new JLabel("未知")).setFont(labelFont);
-		midBox.add(Box.createHorizontalStrut(constants.LABEL_STRUCT_SIZE));
+		midBox.add(Box.createHorizontalStrut(Constants.LABEL_STRUCT_SIZE));
 		midBox.add(new JLabel("操作系统：")).setFont(labelFont);
 		midBox.add(osInfo = new JLabel("未知")).setFont(labelFont);
-		midBox.add(Box.createHorizontalStrut(constants.LABEL_STRUCT_SIZE));
+		midBox.add(Box.createHorizontalStrut(Constants.LABEL_STRUCT_SIZE));
 		midBox.add(new JLabel("最新版本：")).setFont(labelFont);
 		midBox.add(dateInfo = new JLabel("获取中...")).setFont(labelFont);
-		midBox.add(Box.createHorizontalStrut(constants.LABEL_STRUCT_SIZE));
+		midBox.add(Box.createHorizontalStrut(Constants.LABEL_STRUCT_SIZE));
 		midBox.add(new JLabel("服务来源：")).setFont(labelFont);;
 		midBox.add(originInfo = new JLabel("Github")).setFont(labelFont);
-		midBox.add(Box.createHorizontalStrut(constants.LABEL_STRUCT_SIZE));
+		midBox.add(Box.createHorizontalStrut(Constants.LABEL_STRUCT_SIZE));
 		midBox.add(new JLabel("软件版本：")).setFont(labelFont);
 		midBox.add(new JLabel(properties.getProperty("version"))).setFont(labelFont);
 		midBox.add(Box.createHorizontalStrut(90));
