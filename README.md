@@ -1,7 +1,7 @@
 ![image](https://raw.githubusercontent.com/TerrySolar/HostsMe/master/img/logo.png)<br/><br/>
 
 # HostsMe
-------
+
 - ## Intro
 > **HostsMe** 是一个用JAVA Swing写的小工具，可以通过修改本地Hosts文件的方法，以达到**科学上网**的目的，无需任何额外设置，无需**VPN**，访问速度取决于本地网络环境，不用再忍受龟速代理
 
@@ -34,6 +34,10 @@
 ***
 > ![image](https://raw.githubusercontent.com/PigVillage/HostsMe/master/img/restore.png) 点击恢复按钮后，本工具会自动查找backup目录中是否含有之前的备份文件，如果存在便从此备份恢复<br/>
 
-<br/>
+- ## Download
 
-- ## Usage
+ ## 百度云： [点击下载](http://pan.baidu.com/s/1jHjlLci)  密码：w24t
+
+- ## About
+
+## PigVillage Studio --->  <http://www.terrylovesolar.com>
