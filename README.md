@@ -38,8 +38,3 @@
 
 - ## Download
   ### 百度云：[点击下载](http://pan.baidu.com/s/1jHjlLci) **密码:** w24t
-
-<br/>
-
-- ## About
-### PigVillage HomePage : <http://www.terrylovesolar.com>
