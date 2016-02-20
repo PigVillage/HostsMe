@@ -28,8 +28,9 @@ public class Constants {
 	public static String LINUX_HOSTS = "/etc/hosts";
 	
 	//Hosts源地址
-	public static String SOURCE_URL = "https://github.com/highsea/Hosts/blob/master/hosts";
-
+//	public static String SOURCE_URL = "https://github.com/highsea/Hosts/blob/master/hosts";
+	public static String SOURCE_URL = "https://github.com/PigVillage/Hosts/blob/master/hosts";
+	
 	//检测网络连通性的DNS服务器
 	public static String DNS_SERVER = "223.5.5.5";
 	

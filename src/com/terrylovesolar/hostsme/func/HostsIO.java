@@ -130,6 +130,7 @@ public class HostsIO {
 	 * @param hostsArea 显示的JTextArea
 	 */
 	public void read_local_hosts(File file, JTextArea hostsArea) {
+		hostsArea.setText("");
 		try {
 			BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 			for (String text = bufferedReader.readLine(); text != null; text = bufferedReader.readLine()) {

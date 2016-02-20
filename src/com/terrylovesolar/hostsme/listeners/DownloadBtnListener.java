@@ -9,6 +9,8 @@ import java.util.concurrent.Callable;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingWorker;
+
+import com.terrylovesolar.hostsme.func.HostsIO;
 import com.terrylovesolar.hostsme.func.buttonFunc;
 import com.terrylovesolar.hostsme.main.MainWindow;
 
@@ -20,6 +22,7 @@ import com.terrylovesolar.hostsme.main.MainWindow;
  */
 public class DownloadBtnListener implements MouseListener {
 	Properties properties = new Properties();
+	HostsIO hostsIO = new HostsIO();
 	InputStream fis = DownloadBtnListener.class.getResourceAsStream("/cfg/conf.properties");
 	MainWindow mainWindow;
 	//系统换行符
@@ -71,9 +74,10 @@ public class DownloadBtnListener implements MouseListener {
 			
 			@Override
 			protected void done() {
+				String time = hostsIO.get_local_time();
 				mainWindow.progressArea.setText(mainWindow.progressArea.getText().replaceAll(
 						n+n+"正在下载最新版本Hosts...", 
-						n+n+"正在下载最新版本Hosts...  Done!"));
+						n+n+"正在下载最新版本Hosts...  Done!" + "     版本：" + time));
 			}
 		}.execute();
 	}

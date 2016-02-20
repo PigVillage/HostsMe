@@ -16,6 +16,7 @@ import com.terrylovesolar.hostsme.main.MainWindow;
 public class buttonFunc {
 	MainWindow mainWindow;
 	HostsIO hostsIO = new HostsIO();
+	InitCheck initCheck = new InitCheck();
 	CommonFunc commonFunc = new CommonFunc();
 	String n = System.getProperty("line.separator");
 	
@@ -57,6 +58,8 @@ public class buttonFunc {
 				n+n+"替换Hosts开始执行...  Done!"));
 		String selectedHosts = mainWindow.hostsSelected.getText().replaceAll("\n", "  ");
 		mainWindow.progressArea.append(selectedHosts.replaceAll("添加的Hosts：", "\n") + "已经成功添加/替换");
+		//替换Hosts后刷新显示区
+		initCheck.read_hosts(mainWindow.hostsArea);
 	}
 	
 	/**
@@ -106,6 +109,8 @@ public class buttonFunc {
 					mainWindow.progressArea.setText(mainWindow.progressArea.getText().replaceAll(
 							"\n\n正在恢复本地备份Hosts...$", 
 							"\n\n正在恢复本地备份Hosts...  Done!"));
+					//替换Hosts后刷新显示区
+					initCheck.read_hosts(mainWindow.hostsArea);
 				} else {
 					mainWindow.progressArea.setText(mainWindow.progressArea.getText().replaceAll(
 							"\n\n正在恢复本地备份Hosts...$", 
