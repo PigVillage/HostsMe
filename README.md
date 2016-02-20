@@ -34,10 +34,13 @@
 ***
 > ![image](https://raw.githubusercontent.com/PigVillage/HostsMe/master/img/restore.png) 点击恢复按钮后，本工具会自动查找backup目录中是否含有之前的备份文件，如果存在便从此备份恢复<br/>
 
-- ## Download
+- ## Windows Version
 
  - 百度云： [点击下载](http://pan.baidu.com/s/1eQOvyJC)  密码：14pd
 
+- ## Mac/Linux Version
+
+ - 敬请期待...
 
 - ## About
 
