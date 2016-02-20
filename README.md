@@ -1,4 +1,4 @@
-![image](https://raw.githubusercontent.com/TerrySolar/HostsMe/master/img/logo.png)<br/><br/>
+![image](https://raw.githubusercontent.com/PigVillage/HostsMe/master/img/logo.png)<br/><br/>
 
 # HostsMe
 
