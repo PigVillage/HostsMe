@@ -44,6 +44,6 @@
 
 - ## About
 
- - PigVillage Studio --->  <http://www.terrylovesolar.com>
+ - PigVillage Studio --->  <http://terrylovesolar.com>
 
-   [![image](https://raw.githubusercontent.com/PigVillage/HostsMe/master/img/ReadMe/Banner.png "访问主页")](http://www.terrylovesolar.com)
+   [![image](https://raw.githubusercontent.com/PigVillage/HostsMe/master/img/ReadMe/Banner.png "访问主页")](http://terrylovesolar.com)
