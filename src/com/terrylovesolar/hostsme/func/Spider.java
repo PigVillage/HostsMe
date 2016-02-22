@@ -1,11 +1,15 @@
 package com.terrylovesolar.hostsme.func;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import com.terrylovesolar.hostsme.common.Constants;
+import com.terrylovesolar.hostsme.main.MainWindow;
 
 
 /**
@@ -15,6 +19,17 @@ import com.terrylovesolar.hostsme.common.Constants;
  */
 
 public class Spider {
+	//加载属性文件
+	Properties properties = new Properties();
+	InputStream fis = MainWindow.class.getResourceAsStream("/cfg/conf.properties");
+	public Spider() {
+		try {
+			properties.load(fis);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 //	private String SOURCE_URL = "https://raw.githubusercontent.com/highsea/Hosts/master/hosts";
 //	private String SOURCE_URL = "https://github.com/highsea/Hosts/blob/master/hosts";
 	/**
@@ -76,10 +91,32 @@ public class Spider {
 		}
 	}
 	
+	
+	/**
+	 * 检测软件版本更新
+	 * @return String 更新信息
+	 */
+	public String update_check() {
+		try {
+			Document doc = Jsoup.connect(Constants.UPDATE_URL).userAgent(
+					Constants.USER_AGENT).timeout(8000).get();
+			Elements version = doc.select("version");
+			double serverVer = Double.parseDouble(version.text());
+			double localVer = Double.parseDouble(properties.getProperty("version"));
+			if (serverVer > localVer) {
+				Elements url = doc.select("download");
+				return url.text();
+			} else {
+				return "当前为最新版本!";
+			}
+		} catch (Exception e) {
+			return "未知错误！ 请访问作者主页查看详情：http://terrylovesolar.com （Ctrl + C 复制到浏览器访问）";
+		}
+	}
+
+	
 //	public static void main(String[] args) {
 //		Spider spider = new Spider();
-//		System.out.println("kaishi");
-//		spider.get_content(spider.get_source());
-//		
+//		System.out.println(spider.update_check());
 //	}
 }

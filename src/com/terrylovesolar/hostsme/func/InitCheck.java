@@ -17,7 +17,7 @@ import com.terrylovesolar.hostsme.common.Constants;
 public class InitCheck {
 	Constants constants = new Constants();
 	HostsIO hostsIO = new HostsIO();
-	
+	Spider spider = new Spider();
 	/**
 	 * 检测网络连通性，host为阿里云公共DNS服务器
 	 * @return boolean
@@ -107,5 +107,11 @@ public class InitCheck {
 		}
 	}
 	
+	
+	public String update_check() {
+		String info =  spider.update_check();
+		return info;
+		
+	}
 	
 }

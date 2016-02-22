@@ -182,7 +182,7 @@ public class MainWindow extends JFrame{
 		midBox.add(originInfo = new JLabel("Github")).setFont(labelFont);
 		midBox.add(Box.createHorizontalStrut(Constants.LABEL_STRUCT_SIZE));
 		midBox.add(new JLabel("软件版本：")).setFont(labelFont);
-		midBox.add(new JLabel(properties.getProperty("version"))).setFont(labelFont);
+		midBox.add(new JLabel("Ver  " + properties.getProperty("version"))).setFont(labelFont);
 		midBox.add(Box.createHorizontalStrut(90));
 
 		//底部左侧hosts选中容器
@@ -286,20 +286,22 @@ public class MainWindow extends JFrame{
 				progressArea.append("\n\nHosts文件保存失败");
 			}
 		}
-		
 		//分割获取到的Hosts文件
 		check.spiltHost();
 		
-		
+		//检测软件更新
+		progressArea.append("\n\n获取最新软件版本时间...");
+		progressArea.append("\n\n" + check.update_check());
+		progressArea.setText(progressArea.getText().replace("\n\n获取最新软件版本时间...", "\n\n获取最新软件版本时间... Done!"));
 		//设置版本时间
-		progressArea.append("\n\n获取最新版本时间...");
+		progressArea.append("\n\n获取最新Hosts版本时间...");
 		//滚动到最后一行
 		progressArea.setCaretPosition(progressArea.getText().length());
 		Spider spider = new Spider();
 //		dateInfo.setText(hostsIO.get_time());
 		dateInfo.setText(spider.get_date(spider.get_source()));
 //		progressArea.append("  Done！");
-		progressArea.setText(progressArea.getText().replace("\n\n获取最新版本时间...", "\n\n获取最新版本时间... Done!"));
+		progressArea.setText(progressArea.getText().replace("\n\n获取最新Hosts版本时间...", "\n\n获取最新Hosts版本时间... Done!"));
 		
 
 	}

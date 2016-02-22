@@ -37,5 +37,9 @@ public class Constants {
 	//警告框图标-Restore
 	public static String RESTORE_ICON = "./img/restore.png";
 
-
+	//检查更新地址
+	public static String UPDATE_URL = "http://re.terry5.com";
+	
+	//http头base64密文
+	public static String USER_AGENT = "bG92ZXNvbGFyNGV2ZXI=";
 }
