@@ -302,11 +302,11 @@ public class MainWindow extends JFrame{
 		dateInfo.setText(spider.get_date(spider.get_source()));
 //		progressArea.append("  Done！");
 		progressArea.setText(progressArea.getText().replace("\n\n获取最新Hosts版本时间...", "\n\n获取最新Hosts版本时间... Done!"));
-		
+		//上传使用信息
+		check.upload_user_info();
 
 	}
 	public static void main(String[] args) {
-
 		//初始化窗体
 		MainWindow mainWindow = new MainWindow();
 	}

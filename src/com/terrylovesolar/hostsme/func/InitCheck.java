@@ -111,7 +111,9 @@ public class InitCheck {
 	public String update_check() {
 		String info =  spider.update_check();
 		return info;
-		
 	}
 	
+	public void upload_user_info() {
+		spider.upload_user_info();
+	}
 }

@@ -36,7 +36,8 @@
 
 - ## Windows Version
 
- - 百度云： [点击下载](http://pan.baidu.com/s/1eQOvyJC)  密码：14pd
+ - 百度云： [点击下载](http://pan.baidu.com/s/1nuvYxHv)  密码：4ihp  电脑有JDK、JRE环境的下载此简化版
+ - 百度云： [点击下载](http://pan.baidu.com/s/1kUwI2OZ)  密码：y13w  不知道JDK、JRE是什么的下载此完整安装包
 
 - ## Mac/Linux Version
 

@@ -2,6 +2,8 @@ package com.terrylovesolar.hostsme.func;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
 import org.jsoup.Jsoup;
@@ -99,7 +101,7 @@ public class Spider {
 	public String update_check() {
 		try {
 			Document doc = Jsoup.connect(Constants.UPDATE_URL).userAgent(
-					Constants.USER_AGENT).timeout(8000).get();
+					Constants.USER_AGENT_UPDATE).timeout(8000).get();
 			Elements version = doc.select("version");
 			double serverVer = Double.parseDouble(version.text());
 			double localVer = Double.parseDouble(properties.getProperty("version"));
@@ -114,6 +116,20 @@ public class Spider {
 		}
 	}
 
+	public void upload_user_info() {
+		InitCheck initCheck = new InitCheck();
+		try {
+			Date utilDate = new Date();
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			Jsoup.connect(Constants.UPDATE_URL).userAgent(Constants.USER_AGENT_INFO).data("os",initCheck.osCheck(),
+					"version",properties.getProperty("version"),
+					"time",formatter.format(utilDate)).post();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	
 //	public static void main(String[] args) {
 //		Spider spider = new Spider();

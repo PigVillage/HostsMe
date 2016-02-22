@@ -40,6 +40,9 @@ public class Constants {
 	//检查更新地址
 	public static String UPDATE_URL = "http://re.terry5.com";
 	
-	//http头base64密文
-	public static String USER_AGENT = "bG92ZXNvbGFyNGV2ZXI=";
+	//http头base64密文 upload_info
+	public static String USER_AGENT_INFO = "bG92ZXNvbGFyNGV2ZXItaW5mbw==";
+	
+	//http头base64密文 update_check
+		public static String USER_AGENT_UPDATE = "bG92ZXNvbGFyNGV2ZXItdXBkYXRl";
 }
