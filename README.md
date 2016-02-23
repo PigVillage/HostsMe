@@ -38,6 +38,7 @@
 
  - 百度云： <http://pan.baidu.com/s/1nuvYxHv>  密码：4ihp  电脑有JDK、JRE环境的下载此简化版
  - 百度云： <http://pan.baidu.com/s/1kUwI2OZ>  密码：y13w  不知道JDK、JRE是什么的下载此完整安装包
+ - 百度云： <http://pan.baidu.com/s/1qXanYTe>  密码：wbv6  Win7 32位或者更早的系统下载此版本（感谢 H智君-君 同学的提醒）
 
 - ## Mac/Linux Version
 
